@@ -5,6 +5,30 @@
   animation: bounce 1.5s infinite;
 }
 
+/* Style default tombol */
+.btn.btn-white {
+  background-color: #ffffff;
+  color: #000;
+  border-radius: 50px;     /* ✅ jadi bulat kanan-kiri */
+  padding: 10px 25px;      /* biar proporsional */
+  transition: all 0.3s ease; /* biar semua efek smooth */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Saat hover */
+.btn.btn-white:hover {
+  background-color: #949697; /* sedikit lebih gelap */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px); /* naik sedikit */
+}
+
+/* Saat diklik (active) */
+.btn.btn-white:active {
+  background-color: #dddedf; /* lebih gelap lagi */
+  transform: translateY(0); /* turun kembali */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* shadow mengecil */
+}
+
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateY(0);
