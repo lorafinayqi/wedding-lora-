@@ -1,29 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./HeroCover.css";
 
 function HeroCover({ onOpen }) {
-  return (
-    <section className="hero-cover d-flex flex-column justify-content-center align-items-center text-center min-vh-100 position-relative">
-      {/* Video background */}
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="position-absolute w-100 h-100"
-        style={{
-          objectFit: "cover",
-          top: 0,
-          left: 0,
-          zIndex: -1,
-        }}
-      >
-        <source src="videos/hero-3.mp4" type="videos/mp4" />
-        Browser Anda tidak mendukung video.
-      </video>
+  const images = [
+    "img/contact-1.webp",
+    "img/cewe.webp",
+  ]; // daftar foto
 
-      {/* Kotak undangan */}
-      <div className="hero-box shadow-lg p-4 rounded-4">
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % images.length);
+    }, 4000); // ganti gambar setiap 4 detik
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section
+      className="hero-cover d-flex flex-column justify-content-center align-items-center text-center min-vh-100"
+      style={{
+        backgroundImage: `url(${images[currentImage]})`,
+         flex: 1, 
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        transition: "background-image 1s ease-in-out",
+      }}
+    >
+      <div className="hero-box shadow-lg p-4 rounded-4"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.6)", color: "black" }}
+      >
         <h2
           className="fw-bold"
           style={{ fontFamily: "'Dancing Script', cursive" }}
@@ -31,12 +38,6 @@ function HeroCover({ onOpen }) {
           Wahyu & Riski
         </h2>
         <p className="mb-0">Rabu, 15 Maret 2023</p>
-        <button
-          className="btn btn-dark rounded-pill mt-3 px-4 py-2"
-          onClick={onOpen}
-        >
-          Buka Undanga
-        </button>
       </div>
     </section>
   );

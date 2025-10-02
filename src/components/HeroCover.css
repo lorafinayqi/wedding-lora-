@@ -1,13 +1,50 @@
 .hero-cover {
-  background: url("img/bg.jpg") no-repeat center center/cover;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+   /* Biar background selalu full */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Tambahan biar rapi */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.slideshow-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: -2;
+}
+
+.slideshow-img.active {
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
 }
 
 .hero-box {
-  .hero-box {
-  background: rgba(255, 255, 255, 0.2); /* transparan putih */
-  backdrop-filter: blur(10px);          /* efek kaca */
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: #fff; /* teks jadi putih biar kontras */
-}
+  border-radius: 20px;
+  color: #fff;
+  z-index: 1;
 }

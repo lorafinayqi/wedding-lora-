@@ -52,16 +52,23 @@ function App() {
           transition={{ duration: 0.8 }}
           className="d-flex min-vh-100"
         >
-          {/* kiri */}
+          {/* kiri: HeroCover (60%) */}
           <div
-            className="flex-fill d-none d-md-flex align-items-center justify-content-center bg-light"
-            style={{ flex: "1" }}
+            className="d-none d-md-flex align-items-center justify-content-center"
+            style={{ flex: "0 0 65%" }}
           >
             <HeroCover />
           </div>
 
-          {/* kanan */}
-          <div className="flex-fill" style={{ flex: "1" }}>
+          {/* kanan: WeddingPage (40%) */}
+          <div
+            className="flex-fill"
+            style={{
+              flex: "0 0 35%",
+              overflowY: "auto",
+              background: "#fff",
+            }}
+          >
             <WeddingPage />
           </div>
         </motion.div>
