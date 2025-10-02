@@ -1,0 +1,13 @@
+.hero-cover {
+  background: url("img/bg.jpg") no-repeat center center/cover;
+}
+
+.hero-box {
+  .hero-box {
+  background: rgba(255, 255, 255, 0.2); /* transparan putih */
+  backdrop-filter: blur(10px);          /* efek kaca */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff; /* teks jadi putih biar kontras */
+}
+}

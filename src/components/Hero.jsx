@@ -2,30 +2,34 @@ import { EnvelopeHeart } from "react-bootstrap-icons";
 import confetti from "canvas-confetti";
 import "./Hero.css"; // buat animasi bounce
 
-function Hero() {
+function Hero({ onOpen }) {
   const handleOpen = () => {
-    const end = Date.now() + 3 * 1000; // durasi 3 detik
+    const end = Date.now() + 1 * 10; // durasi 3 detik
     const colors = ["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"]; // warna custom wedding vibes
 
     const frame = () => {
-      if (Date.now() > end) return;
+      if (Date.now() > end) {
+        // Setelah confetti selesai, baru buka halaman undangan
+        if (onOpen) onOpen();
+        return;
+      }
 
       // Tembakan kiri
       confetti({
-        particleCount: 2,
+        particleCount: 400,
         angle: 60,
         spread: 55,
-        startVelocity: 60,
+        startVelocity: 80,
         origin: { x: 0, y: 0.5 },
         colors: colors,
       });
 
       // Tembakan kanan
       confetti({
-        particleCount: 2,
+        particleCount: 400,
         angle: 120,
         spread: 55,
-        startVelocity: 60,
+        startVelocity: 80,
         origin: { x: 1, y: 0.5 },
         colors: colors,
       });
@@ -34,9 +38,6 @@ function Hero() {
     };
 
     frame();
-
-    // Scroll ke bagian about
-    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -76,7 +77,7 @@ function Hero() {
 
       {/* Tombol dengan ikon bounce */}
       <button
-        className="btn btn-white d-flex align-items-center gap-2 px-4 py-2 shadow-lg mx-auto"
+        className="btn btn-white d-flex align-items-center gap-2 px-4 py-2 shadow-lg mx-auto rounded-pill fw-bold"
         onClick={handleOpen}
       >
         <EnvelopeHeart className="bounce-icon" />
