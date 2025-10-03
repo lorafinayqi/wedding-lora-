@@ -36,8 +36,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: -1;
+  background: rgba(236, 233, 233, 0.5); /* transparan gelap */
+  z-index: 0; /* tetap di belakang hero-box */
 }
 
 .hero-box {

@@ -22,14 +22,19 @@ function HeroCover({ onOpen }) {
       className="hero-cover d-flex flex-column justify-content-center align-items-center text-center min-vh-100"
       style={{
         backgroundImage: `url(${images[currentImage]})`,
-         flex: 1, 
+        flex: 1,
         backgroundSize: "cover",
         backgroundPosition: "center",
         transition: "background-image 1s ease-in-out",
+        position: "relative", // penting biar overlay bisa absolute
       }}
     >
-      <div className="hero-box shadow-lg p-4 rounded-4"
-        style={{ backgroundColor: "rgba(255, 255, 255, 0.6)", color: "black" }}
+      {/* overlay gelap transparan */}
+      <div className="overlay"></div>
+
+      <div
+        className="hero-box shadow-lg p-4 rounded-4"
+        style={{ backgroundColor: "rgba(255, 255, 255, 0.6)", color: "black", zIndex: 1 }}
       >
         <h2
           className="fw-bold"

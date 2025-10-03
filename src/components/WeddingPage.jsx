@@ -3,31 +3,80 @@ import { Calendar, House, Gift, Image, Chat } from "react-bootstrap-icons";
 
 function WeddingPage() {
   return (
-    <div className="wedding-page bg-light min-vh-100 d-flex flex-column">
+    <div
+      className="wedding-page min-vh-100 d-flex flex-column text-black"
+      style={{ position: "relative", overflow: "hidden" }}
+    >
+      {/* Background blur */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          backgroundImage: "url('img/bg.webp')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "blur(3px)", // efek kabur
+          transform: "scale(1.1)", // sedikit diperbesar biar tidak ada tepi kosong
+          zIndex: 0,
+        }}
+      />
+
+      {/* overlay transparan gelap */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+          background: "rgba(255, 255, 255, 0.5)",
+          zIndex: 1,
+        }}
+      />
+
       {/* Hero section */}
-      <section className="text-center py-5">
+      <section
+        className="text-center py-5"
+        style={{ position: "relative", zIndex: 2 }}
+      >
         <h3
           style={{
             fontFamily: "'Dancing Script', cursive",
-            fontSize: "1.5rem",
+           fontSize: "2rem",
+          marginBottom: "4rem",
           }}
         >
           Undangan Pernikahan
         </h3>
 
-        <div className="my-4">
+        <div className="my-4 d-flex justify-content-center">
           <img
             src="img/bg.webp"
             alt="Couple"
             className="rounded-circle shadow"
-            style={{ width: "200px", height: "200px", objectFit: "cover" }}
+            style={{
+              width: "210px",
+              height: "210px",
+              objectFit: "cover",
+              border: "4px solid white", // outline putih
+            }}
           />
         </div>
 
-        <h4 style={{ fontFamily: "'Dancing Script', cursive" }}>
+        <h4 style={{ fontFamily: "'Dancing Script', cursive",
+          fontSize: "2.1rem",
+          marginBottom: "2rem",
+         }}>
           Wahyu & Riski
         </h4>
-        <p className="fw-bold">Rabu, 15 Maret 2023</p>
+        <p style={{
+          fontSize: "1.2rem",
+          marginBottom: "0.1rem"
+        }}
+        >Rabu, 15 Maret 2023</p>
 
         <button className="btn btn-outline-dark rounded-pill px-4 py-2 mt-2">
           <Calendar className="me-2" />
@@ -36,7 +85,10 @@ function WeddingPage() {
       </section>
 
       {/* Bottom navbar */}
-      <nav className="mt-auto bg-white shadow-sm py-2 d-flex justify-content-around border-top">
+      <nav
+        className="mt-auto bg-white shadow-sm py-2 d-flex justify-content-around border-top"
+        style={{ position: "relative", zIndex: 2 }}
+      >
         <button className="btn btn-link text-dark text-center">
           <House size={20} />
           <div style={{ fontSize: "0.8rem" }}>Home</div>
